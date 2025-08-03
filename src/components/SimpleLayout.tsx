@@ -1,16 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { UserButton } from '@clerk/clerk-react';
-import {
-  Users,
-  Package,
-  Shield,
-  CreditCard,
-  FileText,
-  Settings,
-  LayoutDashboard,
-  MessageCircle
-} from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -20,15 +10,15 @@ const SimpleLayout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
 
   const navigation = [
-    { name: 'Dashboard', href: '/', icon: LayoutDashboard },
-    { name: 'Users', href: '/users', icon: Users },
-    { name: 'Shipments', href: '/shipments', icon: Package },
-    { name: 'Compliance', href: '/compliance', icon: Shield },
-    { name: 'Payments', href: '/payments', icon: CreditCard },
-    { name: 'Support', href: '/support', icon: MessageCircle },
-    { name: 'Logs', href: '/logs', icon: FileText },
-    { name: 'Manual Actions', href: '/manual', icon: Settings },
-    { name: 'Settings', href: '/settings', icon: Settings },
+    { name: 'Dashboard', href: '/', icon: '📊' },
+    { name: 'Users', href: '/users', icon: '👥' },
+    { name: 'Shipments', href: '/shipments', icon: '📦' },
+    { name: 'Compliance', href: '/compliance', icon: '🛡️' },
+    { name: 'Payments', href: '/payments', icon: '💳' },
+    { name: 'Support', href: '/support', icon: '💬' },
+    { name: 'Logs', href: '/logs', icon: '📄' },
+    { name: 'Manual Actions', href: '/manual', icon: '⚙️' },
+    { name: 'Settings', href: '/settings', icon: '⚙️' },
   ];
 
   return (
@@ -54,7 +44,6 @@ const SimpleLayout: React.FC<LayoutProps> = ({ children }) => {
         </div>
         <nav style={{ flex: 1, padding: '16px 8px' }}>
           {navigation.map((item) => {
-            const Icon = item.icon;
             const isActive = location.pathname === item.href;
             return (
               <Link
@@ -73,7 +62,7 @@ const SimpleLayout: React.FC<LayoutProps> = ({ children }) => {
                   color: isActive ? '#1e40af' : '#4b5563'
                 }}
               >
-                <Icon style={{ marginRight: '12px', height: '20px', width: '20px' }} />
+                <span style={{ marginRight: '12px', fontSize: '20px' }}>{item.icon}</span>
                 {item.name}
               </Link>
             );

@@ -1,16 +1,5 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import {
-  Users,
-  Package,
-  Shield,
-  CreditCard,
-  FileText,
-  Settings,
-  LayoutDashboard,
-  Menu,
-  X
-} from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -21,13 +10,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   const navigation = [
-    { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
-    { name: 'Users', href: '/admin/users', icon: Users },
-    { name: 'Shipments', href: '/admin/shipments', icon: Package },
-    { name: 'Compliance', href: '/admin/compliance', icon: Shield },
-    { name: 'Payments', href: '/admin/payments', icon: CreditCard },
-    { name: 'Logs', href: '/admin/logs', icon: FileText },
-    { name: 'Manual Actions', href: '/admin/manual', icon: Settings },
+    { name: 'Dashboard', href: '/admin/dashboard', icon: '📊' },
+    { name: 'Users', href: '/admin/users', icon: '👥' },
+    { name: 'Shipments', href: '/admin/shipments', icon: '📦' },
+    { name: 'Compliance', href: '/admin/compliance', icon: '🛡️' },
+    { name: 'Payments', href: '/admin/payments', icon: '💳' },
+    { name: 'Logs', href: '/admin/logs', icon: '📄' },
+    { name: 'Manual Actions', href: '/admin/manual', icon: '⚙️' },
   ];
 
   return (
@@ -66,12 +55,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           }}>
             <h1 style={{ fontSize: '20px', fontWeight: 'bold', color: '#111827' }}>Admin Dashboard</h1>
             <button onClick={() => setSidebarOpen(false)} style={{ border: 'none', background: 'none' }}>
-              <X style={{ height: '24px', width: '24px' }} />
+              <span style={{ fontSize: '24px' }}>✕</span>
             </button>
           </div>
           <nav style={{ flex: 1, padding: '16px 8px' }}>
             {navigation.map((item) => {
-              const Icon = item.icon;
               const isActive = location.pathname === item.href;
               return (
                 <Link
@@ -91,7 +79,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   }}
                   onClick={() => setSidebarOpen(false)}
                 >
-                  <Icon style={{ marginRight: '12px', height: '20px', width: '20px' }} />
+                  <span style={{ marginRight: '12px', fontSize: '20px' }}>{item.icon}</span>
                   {item.name}
                 </Link>
               );
@@ -108,7 +96,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
           <nav className="flex-1 space-y-1 px-2 py-4">
             {navigation.map((item) => {
-              const Icon = item.icon;
               const isActive = location.pathname === item.href;
               return (
                 <Link
@@ -120,7 +107,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                   }`}
                 >
-                  <Icon className="mr-3 h-5 w-5" />
+                  <span className="mr-3" style={{ fontSize: '20px' }}>{item.icon}</span>
                   {item.name}
                 </Link>
               );
@@ -137,7 +124,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             className="px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 lg:hidden"
             onClick={() => setSidebarOpen(true)}
           >
-            <Menu className="h-6 w-6" />
+            <span style={{ fontSize: '24px' }}>☰</span>
           </button>
           <div className="flex flex-1 justify-between px-4">
             <div className="flex flex-1">

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Settings, Users, Bell, Shield, Database, Mail, Globe } from 'lucide-react';
 
 const SettingsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('general');
@@ -11,11 +10,11 @@ const SettingsPage: React.FC = () => {
   });
 
   const tabs = [
-    { id: 'general', name: 'General', icon: Settings },
-    { id: 'team', name: 'Team Members', icon: Users },
-    { id: 'notifications', name: 'Notifications', icon: Bell },
-    { id: 'security', name: 'Security', icon: Shield },
-    { id: 'integrations', name: 'Integrations', icon: Database }
+    { id: 'general', name: 'General', icon: '⚙️' },
+    { id: 'team', name: 'Team Members', icon: '👥' },
+    { id: 'notifications', name: 'Notifications', icon: '🔔' },
+    { id: 'security', name: 'Security', icon: '🛡️' },
+    { id: 'integrations', name: 'Integrations', icon: '🔗' }
   ];
 
   const teamMembers = [
@@ -259,7 +258,7 @@ const SettingsPage: React.FC = () => {
           <div className="admin-card" style={{ padding: '8px' }}>
             <nav>
               {tabs.map((tab) => {
-                const Icon = tab.icon;
+
                 return (
                   <button
                     key={tab.id}
@@ -280,7 +279,7 @@ const SettingsPage: React.FC = () => {
                       textAlign: 'left'
                     }}
                   >
-                    <Icon style={{ marginRight: '12px', height: '16px', width: '16px' }} />
+                    <span style={{ marginRight: '12px', fontSize: '16px' }}>{tab.icon}</span>
                     {tab.name}
                   </button>
                 );

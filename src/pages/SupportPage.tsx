@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Search, MessageCircle, Clock, CheckCircle, AlertCircle, User } from 'lucide-react';
 
 const SupportPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -104,7 +103,7 @@ const SupportPage: React.FC = () => {
       }}>
         <div className="admin-card">
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <MessageCircle style={{ height: '32px', width: '32px', color: '#2563eb' }} />
+            <span style={{ fontSize: '32px', color: '#2563eb' }}>💬</span>
             <div style={{ marginLeft: '16px' }}>
               <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#111827' }}>
                 {tickets.length}
@@ -115,7 +114,7 @@ const SupportPage: React.FC = () => {
         </div>
         <div className="admin-card">
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Clock style={{ height: '32px', width: '32px', color: '#f59e0b' }} />
+            <span style={{ fontSize: '32px', color: '#f59e0b' }}>🕐</span>
             <div style={{ marginLeft: '16px' }}>
               <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#111827' }}>
                 {tickets.filter(t => t.status === 'open').length}
@@ -126,7 +125,7 @@ const SupportPage: React.FC = () => {
         </div>
         <div className="admin-card">
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <AlertCircle style={{ height: '32px', width: '32px', color: '#3b82f6' }} />
+            <span style={{ fontSize: '32px', color: '#3b82f6' }}>⏳</span>
             <div style={{ marginLeft: '16px' }}>
               <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#111827' }}>
                 {tickets.filter(t => t.status === 'pending').length}
@@ -137,7 +136,7 @@ const SupportPage: React.FC = () => {
         </div>
         <div className="admin-card">
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <CheckCircle style={{ height: '32px', width: '32px', color: '#10b981' }} />
+            <span style={{ fontSize: '32px', color: '#10b981' }}>✅</span>
             <div style={{ marginLeft: '16px' }}>
               <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#111827' }}>
                 {tickets.filter(t => t.status === 'resolved').length}
@@ -153,15 +152,14 @@ const SupportPage: React.FC = () => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
             <div style={{ flex: 1, position: 'relative' }}>
-              <Search style={{
+              <span style={{
                 position: 'absolute',
                 left: '12px',
                 top: '50%',
                 transform: 'translateY(-50%)',
-                width: '16px',
-                height: '16px',
+                fontSize: '16px',
                 color: '#6b7280'
-              }} />
+              }}>🔍</span>
               <input
                 type="text"
                 placeholder="Search tickets..."
@@ -228,13 +226,13 @@ const SupportPage: React.FC = () => {
                     <div style={{ fontSize: '14px', color: '#111827' }}>{ticket.created}</div>
                   </td>
                   <td>
-                    <div style={{ 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      fontSize: '14px', 
-                      color: '#111827' 
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      fontSize: '14px',
+                      color: '#111827'
                     }}>
-                      <MessageCircle style={{ width: '16px', height: '16px', marginRight: '4px' }} />
+                      <span style={{ fontSize: '16px', marginRight: '4px' }}>💬</span>
                       {ticket.messages}
                     </div>
                   </td>

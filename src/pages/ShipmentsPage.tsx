@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Search, Package, Truck, Ship, Plane } from 'lucide-react';
 
 const ShipmentsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -63,7 +62,7 @@ const ShipmentsPage: React.FC = () => {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-4">
         <div className="admin-card">
           <div className="flex items-center">
-            <Package className="h-8 w-8 text-blue-600" />
+            <span style={{ fontSize: '32px', color: '#2563eb' }}>📦</span>
             <div className="ml-4">
               <div className="text-2xl font-bold text-gray-900">{shipments.length}</div>
               <div className="text-sm text-gray-500">Total Shipments</div>
@@ -72,7 +71,7 @@ const ShipmentsPage: React.FC = () => {
         </div>
         <div className="admin-card">
           <div className="flex items-center">
-            <Truck className="h-8 w-8 text-yellow-600" />
+            <span style={{ fontSize: '32px', color: '#ca8a04' }}>🚛</span>
             <div className="ml-4">
               <div className="text-2xl font-bold text-gray-900">
                 {shipments.filter(s => s.status === 'in_transit').length}
@@ -83,7 +82,7 @@ const ShipmentsPage: React.FC = () => {
         </div>
         <div className="admin-card">
           <div className="flex items-center">
-            <Ship className="h-8 w-8 text-green-600" />
+            <span style={{ fontSize: '32px', color: '#16a34a' }}>🚢</span>
             <div className="ml-4">
               <div className="text-2xl font-bold text-gray-900">
                 {shipments.filter(s => s.status === 'delivered').length}
@@ -94,7 +93,7 @@ const ShipmentsPage: React.FC = () => {
         </div>
         <div className="admin-card">
           <div className="flex items-center">
-            <Plane className="h-8 w-8 text-red-600" />
+            <span style={{ fontSize: '32px', color: '#dc2626' }}>✈️</span>
             <div className="ml-4">
               <div className="text-2xl font-bold text-gray-900">
                 {shipments.filter(s => s.status === 'pending').length}
@@ -108,7 +107,7 @@ const ShipmentsPage: React.FC = () => {
       <div className="admin-card">
         <div className="mb-4">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', fontSize: '16px', color: '#9ca3af' }}>🔍</span>
             <input
               type="text"
               placeholder="Search shipments..."

@@ -1,5 +1,4 @@
 import React from 'react';
-import { CreditCard } from 'lucide-react';
 
 const PaymentsPage: React.FC = () => {
   return (
@@ -10,7 +9,7 @@ const PaymentsPage: React.FC = () => {
       </div>
       <div className="admin-card">
         <div className="text-center py-12">
-          <CreditCard className="mx-auto h-12 w-12 text-gray-400" />
+          <span style={{ fontSize: '48px', color: '#9ca3af', display: 'block' }}>💳</span>
           <h3 className="mt-2 text-sm font-medium text-gray-900">Payment Management</h3>
           <p className="mt-1 text-sm text-gray-500">View invoices, process payments, and override quotes</p>
         </div>

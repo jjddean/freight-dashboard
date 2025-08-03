@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle, AlertCircle, Info, AlertTriangle } from 'lucide-react';
 
 export interface Notification {
   id: string;
@@ -29,15 +28,15 @@ const NotificationSystem: React.FC<NotificationSystemProps> = ({ notifications, 
   const getIcon = (type: string) => {
     switch (type) {
       case 'success':
-        return <CheckCircle style={{ width: '20px', height: '20px', color: '#10b981' }} />;
+        return <span style={{ fontSize: '20px', color: '#10b981' }}>✅</span>;
       case 'error':
-        return <AlertCircle style={{ width: '20px', height: '20px', color: '#ef4444' }} />;
+        return <span style={{ fontSize: '20px', color: '#ef4444' }}>❌</span>;
       case 'warning':
-        return <AlertTriangle style={{ width: '20px', height: '20px', color: '#f59e0b' }} />;
+        return <span style={{ fontSize: '20px', color: '#f59e0b' }}>⚠️</span>;
       case 'info':
-        return <Info style={{ width: '20px', height: '20px', color: '#3b82f6' }} />;
+        return <span style={{ fontSize: '20px', color: '#3b82f6' }}>ℹ️</span>;
       default:
-        return <Info style={{ width: '20px', height: '20px', color: '#3b82f6' }} />;
+        return <span style={{ fontSize: '20px', color: '#3b82f6' }}>ℹ️</span>;
     }
   };
 
@@ -126,7 +125,7 @@ const NotificationSystem: React.FC<NotificationSystemProps> = ({ notifications, 
               padding: '0'
             }}
           >
-            <X style={{ width: '16px', height: '16px' }} />
+            <span style={{ fontSize: '16px' }}>✕</span>
           </button>
         </div>
       ))}

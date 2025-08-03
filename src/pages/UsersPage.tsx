@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Search, Filter, UserCheck, UserX, Mail, Building } from 'lucide-react';
 
 const UsersPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -106,7 +105,7 @@ const UsersPage: React.FC = () => {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-4">
         <div className="admin-card">
           <div className="flex items-center">
-            <UserCheck className="h-8 w-8 text-green-600" />
+            <span style={{ fontSize: '32px', color: '#16a34a' }}>✅</span>
             <div className="ml-4">
               <div className="text-2xl font-bold text-gray-900">
                 {users.filter(u => u.status === 'active').length}
@@ -117,7 +116,7 @@ const UsersPage: React.FC = () => {
         </div>
         <div className="admin-card">
           <div className="flex items-center">
-            <UserX className="h-8 w-8 text-yellow-600" />
+            <span style={{ fontSize: '32px', color: '#ca8a04' }}>⏳</span>
             <div className="ml-4">
               <div className="text-2xl font-bold text-gray-900">
                 {users.filter(u => u.status === 'pending').length}
@@ -128,7 +127,7 @@ const UsersPage: React.FC = () => {
         </div>
         <div className="admin-card">
           <div className="flex items-center">
-            <UserX className="h-8 w-8 text-red-600" />
+            <span style={{ fontSize: '32px', color: '#dc2626' }}>❌</span>
             <div className="ml-4">
               <div className="text-2xl font-bold text-gray-900">
                 {users.filter(u => u.status === 'suspended').length}
@@ -139,7 +138,7 @@ const UsersPage: React.FC = () => {
         </div>
         <div className="admin-card">
           <div className="flex items-center">
-            <Building className="h-8 w-8 text-blue-600" />
+            <span style={{ fontSize: '32px', color: '#2563eb' }}>🏢</span>
             <div className="ml-4">
               <div className="text-2xl font-bold text-gray-900">{users.length}</div>
               <div className="text-sm text-gray-500">Total Users</div>
@@ -153,7 +152,7 @@ const UsersPage: React.FC = () => {
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', fontSize: '16px', color: '#9ca3af' }}>🔍</span>
               <input
                 type="text"
                 placeholder="Search users..."

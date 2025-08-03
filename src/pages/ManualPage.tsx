@@ -1,5 +1,4 @@
 import React from 'react';
-import { Settings } from 'lucide-react';
 
 const ManualPage: React.FC = () => {
   return (
@@ -10,7 +9,7 @@ const ManualPage: React.FC = () => {
       </div>
       <div className="admin-card">
         <div className="text-center py-12">
-          <Settings className="mx-auto h-12 w-12 text-gray-400" />
+          <span style={{ fontSize: '48px', color: '#9ca3af', display: 'block' }}>⚙️</span>
           <h3 className="mt-2 text-sm font-medium text-gray-900">Manual Operations</h3>
           <p className="mt-1 text-sm text-gray-500">Trigger workflows and retry failed automation</p>
         </div>

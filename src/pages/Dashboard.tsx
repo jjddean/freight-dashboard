@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Users, Package, AlertTriangle, DollarSign, Activity, TrendingUp, TestTube, CheckCircle, Clock, AlertCircle } from 'lucide-react';
 
 // API Testing Service - Direct in component
 const VERCEL_APP_URL = 'https://clerk-react-lac.vercel.app';
@@ -117,10 +116,10 @@ const Dashboard: React.FC = () => {
     setIsLoading(false);
   };
   const stats = [
-    { name: 'Total Users', value: '2,847', change: '+12%', icon: Users, color: 'text-blue-600' },
-    { name: 'Active Shipments', value: '1,234', change: '+8%', icon: Package, color: 'text-green-600' },
-    { name: 'Compliance Flags', value: '23', change: '-15%', icon: AlertTriangle, color: 'text-red-600' },
-    { name: 'Revenue (MTD)', value: '$847K', change: '+23%', icon: DollarSign, color: 'text-purple-600' },
+    { name: 'Total Users', value: '2,847', change: '+12%', icon: '👥', color: 'text-blue-600' },
+    { name: 'Active Shipments', value: '1,234', change: '+8%', icon: '📦', color: 'text-green-600' },
+    { name: 'Compliance Flags', value: '23', change: '-15%', icon: '⚠️', color: 'text-red-600' },
+    { name: 'Revenue (MTD)', value: '$847K', change: '+23%', icon: '💰', color: 'text-purple-600' },
   ];
 
   const recentActivity = [
@@ -148,12 +147,11 @@ const Dashboard: React.FC = () => {
         gap: '20px'
       }}>
         {stats.map((stat) => {
-          const Icon = stat.icon;
           return (
             <div key={stat.name} className="admin-card">
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <div style={{ flexShrink: 0 }}>
-                  <Icon style={{ height: '32px', width: '32px' }} className={stat.color} />
+                  <span style={{ fontSize: '32px' }}>{stat.icon}</span>
                 </div>
                 <div style={{ marginLeft: '20px', flex: 1 }}>
                   <div style={{ fontSize: '14px', fontWeight: '500', color: '#6b7280', marginBottom: '4px' }}>
@@ -184,22 +182,22 @@ const Dashboard: React.FC = () => {
         <h2 className="text-lg font-medium text-gray-900 mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <button className="admin-button-secondary text-left p-4">
-            <Users className="h-5 w-5 mb-2" />
+            <span style={{ fontSize: '20px', marginBottom: '8px', display: 'block' }}>👥</span>
             <div className="text-sm font-medium">Approve User</div>
             <div className="text-xs text-gray-500">Review pending registrations</div>
           </button>
           <button className="admin-button-secondary text-left p-4">
-            <Package className="h-5 w-5 mb-2" />
+            <span style={{ fontSize: '20px', marginBottom: '8px', display: 'block' }}>📦</span>
             <div className="text-sm font-medium">Override Quote</div>
             <div className="text-xs text-gray-500">Manually adjust pricing</div>
           </button>
           <button className="admin-button-secondary text-left p-4">
-            <AlertTriangle className="h-5 w-5 mb-2" />
+            <span style={{ fontSize: '20px', marginBottom: '8px', display: 'block' }}>⚠️</span>
             <div className="text-sm font-medium">Review Compliance</div>
             <div className="text-xs text-gray-500">Check flagged shipments</div>
           </button>
           <button className="admin-button-secondary text-left p-4">
-            <Activity className="h-5 w-5 mb-2" />
+            <span style={{ fontSize: '20px', marginBottom: '8px', display: 'block' }}>⚡</span>
             <div className="text-sm font-medium">Trigger Workflow</div>
             <div className="text-xs text-gray-500">Manual process execution</div>
           </button>
@@ -227,7 +225,7 @@ const Dashboard: React.FC = () => {
               fontWeight: '500'
             }}
           >
-            <TestTube style={{ width: '16px', height: '16px' }} />
+            <span style={{ fontSize: '16px' }}>🧪</span>
             {isLoading ? 'Testing...' : 'Test Vercel APIs'}
           </button>
         </div>

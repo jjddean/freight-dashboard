@@ -1,5 +1,4 @@
 import React from 'react';
-import { FileText } from 'lucide-react';
 
 const LogsPage: React.FC = () => {
   return (
@@ -10,7 +9,7 @@ const LogsPage: React.FC = () => {
       </div>
       <div className="admin-card">
         <div className="text-center py-12">
-          <FileText className="mx-auto h-12 w-12 text-gray-400" />
+          <span style={{ fontSize: '48px', color: '#9ca3af', display: 'block' }}>📄</span>
           <h3 className="mt-2 text-sm font-medium text-gray-900">Log Monitoring</h3>
           <p className="mt-1 text-sm text-gray-500">View API logs, webhook events, and system activity</p>
         </div>

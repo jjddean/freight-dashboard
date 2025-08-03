@@ -1,5 +1,4 @@
 import React from 'react';
-import { Shield } from 'lucide-react';
 
 const CompliancePage: React.FC = () => {
   return (
@@ -10,7 +9,7 @@ const CompliancePage: React.FC = () => {
       </div>
       <div className="admin-card">
         <div className="text-center py-12">
-          <Shield className="mx-auto h-12 w-12 text-gray-400" />
+          <span style={{ fontSize: '48px', color: '#9ca3af', display: 'block' }}>🛡️</span>
           <h3 className="mt-2 text-sm font-medium text-gray-900">Compliance Monitoring</h3>
           <p className="mt-1 text-sm text-gray-500">Review flagged shipments and compliance issues</p>
         </div>
