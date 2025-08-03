@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from '@clerk/clerk-react';
+// Temporarily disable Clerk authentication for admin dashboard
+// import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from '@clerk/clerk-react';
 import SimpleLayout from './components/SimpleLayout';
 import NotificationSystem, { useNotifications } from './components/NotificationSystem';
 import Dashboard from './pages/Dashboard';
@@ -13,17 +14,21 @@ import ManualPage from './pages/ManualPage';
 import SupportPage from './pages/SupportPage';
 import SettingsPage from './pages/SettingsPage';
 
-const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+// Temporarily disable Clerk
+// const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 function App() {
-  if (!clerkPubKey) {
-    throw new Error("Missing Clerk Publishable Key");
-  }
+  // Temporarily disable Clerk authentication check
+  // if (!clerkPubKey) {
+  //   throw new Error("Missing Clerk Publishable Key");
+  // }
 
   return (
-    <ClerkProvider publishableKey={clerkPubKey}>
+    // Temporarily disable ClerkProvider for deployment
+    // <ClerkProvider publishableKey={clerkPubKey}>
       <BrowserRouter>
-        <SignedIn>
+        {/* Temporarily disable SignedIn wrapper */}
+        {/* <SignedIn> */}
           <Routes>
             <Route path="/" element={<SimpleLayout><Dashboard /></SimpleLayout>} />
             <Route path="/dashboard" element={<SimpleLayout><Dashboard /></SimpleLayout>} />
@@ -37,13 +42,13 @@ function App() {
             <Route path="/settings" element={<SimpleLayout><SettingsPage /></SimpleLayout>} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-        </SignedIn>
+        {/* </SignedIn> */}
 
-        <SignedOut>
+        {/* <SignedOut>
           <RedirectToSignIn />
-        </SignedOut>
+        </SignedOut> */}
       </BrowserRouter>
-    </ClerkProvider>
+    // </ClerkProvider>
   );
 }
 
