@@ -14,14 +14,30 @@ import ManualPage from './pages/ManualPage';
 import SupportPage from './pages/SupportPage';
 import SettingsPage from './pages/SettingsPage';
 
-// Temporarily disable Clerk
-// const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 function App() {
-  // Temporarily disable Clerk authentication check
-  // if (!clerkPubKey) {
-  //   throw new Error("Missing Clerk Publishable Key");
-  // }
+  if (!clerkPubKey) {
+    return (
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        flexDirection: 'column',
+        gap: '16px',
+        fontFamily: 'system-ui, sans-serif'
+      }}>
+        <h1 style={{ color: '#dc2626', fontSize: '24px', margin: 0 }}>Configuration Error</h1>
+        <p style={{ color: '#6b7280', textAlign: 'center', maxWidth: '400px', margin: 0 }}>
+          Missing Clerk Publishable Key. Please set VITE_CLERK_PUBLISHABLE_KEY in your environment variables.
+        </p>
+        <p style={{ color: '#9ca3af', fontSize: '14px', margin: 0 }}>
+          Check your Vercel dashboard → Settings → Environment Variables
+        </p>
+      </div>
+    );
+  }
 
   return (
     // Temporarily disable ClerkProvider for deployment
