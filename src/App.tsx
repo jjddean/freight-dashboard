@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 // Temporarily disable Clerk authentication for admin dashboard
-// import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from '@clerk/clerk-react';
+// import { ClerkProvider, SignedIn, SignedOut } from '@clerk/clerk-react';
 import SimpleLayout from './components/SimpleLayout';
+import MainLayout from './components/MainLayout';
 import NotificationSystem, { useNotifications } from './components/NotificationSystem';
 import Dashboard from './pages/Dashboard';
 import UsersPage from './pages/UsersPage';
@@ -13,6 +14,8 @@ import LogsPage from './pages/LogsPage';
 import ManualPage from './pages/ManualPage';
 import SupportPage from './pages/SupportPage';
 import SettingsPage from './pages/SettingsPage';
+import HomePage from './pages/HomePage';
+import PlatformPage from './pages/PlatformPage';
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
