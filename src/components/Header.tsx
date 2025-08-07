@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SignInButton, SignUpButton } from '@clerk/clerk-react';
+import { SignInButton, SignUpButton, UserButton, useAuth, SignedIn, SignedOut } from '@clerk/clerk-react';
 
 const Header: React.FC = () => {
+  const { isSignedIn, isLoaded } = useAuth();
+  
+  console.log('Header render - Clerk state:', { isSignedIn, isLoaded });
+  
   const navigationItems = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
@@ -94,53 +98,55 @@ const Header: React.FC = () => {
           alignItems: 'center',
           gap: '12px'
         }}>
-          <SignInButton mode="modal">
-            <button style={{
-              padding: '8px 20px',
-              fontSize: '16px',
-              fontWeight: '500',
-              color: '#2563eb',
-              backgroundColor: 'transparent',
-              border: '1px solid #2563eb',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              transition: 'all 0.2s'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#2563eb';
-              e.currentTarget.style.color = 'white';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#2563eb';
-            }}
-            >
-              Sign In
-            </button>
-          </SignInButton>
-
-          <SignUpButton mode="modal">
-            <button style={{
-              padding: '8px 20px',
-              fontSize: '16px',
-              fontWeight: '500',
-              color: 'white',
-              backgroundColor: '#2563eb',
-              border: '1px solid #2563eb',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              transition: 'background-color 0.2s'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#1d4ed8';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#2563eb';
-            }}
-            >
-              Sign Up
-            </button>
-          </SignUpButton>
+          <SignedOut>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <SignInButton 
+                mode="modal"
+                afterSignInUrl="/"
+                afterSignUpUrl="/"
+              >
+                <button 
+                  onClick={() => console.log('🔵 Sign In button clicked!')}
+                  style={{
+                    padding: '8px 16px',
+                    backgroundColor: '#2563eb',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: '500'
+                  }}
+                >
+                  Sign In
+                </button>
+              </SignInButton>
+              <SignUpButton 
+                mode="modal"
+                afterSignInUrl="/"
+                afterSignUpUrl="/"
+              >
+                <button 
+                  onClick={() => console.log('🟢 Sign Up button clicked!')}
+                  style={{
+                    padding: '8px 16px',
+                    backgroundColor: '#059669',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: '500'
+                  }}
+                >
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </div>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </div>
       </div>
     </header>

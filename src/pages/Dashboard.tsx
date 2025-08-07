@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Activity } from 'lucide-react';
 
 // API Testing Service - Direct in component
 const VERCEL_APP_URL = 'https://clerk-react-lac.vercel.app';
